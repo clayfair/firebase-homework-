@@ -50,11 +50,10 @@ $("#submit").on("click", function (event) {
     console.log(frequencyMin);
 });
 
-//Permission to access my firebase is being denied. Ask next class for help. Next up code is going to resemble the email example we redid in class below: --------> 
+//Permission to access my firebase is being denied. Ask next class for help. Next up the code is going to resemble the email example we redid in class. Something like 1.) below. We also need to calculate next train. We also did something similar in class. Something like 2. ) below. 
 
 
-
-
+//1.) 
 
 // Firebase watcher + initial loader HINT: This code behaves similarly to .on("value")
 dataRef.ref().on("child_added", function (childSnapshot) {
@@ -76,9 +75,6 @@ dataRef.ref().on("child_added", function (childSnapshot) {
     console.log("Errors handled: " + errorObject.code);
 });
 
-
-
-
 // dataRef.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function (snapshot) {
 
 //     // Change the HTML to reflect
@@ -87,3 +83,48 @@ dataRef.ref().on("child_added", function (childSnapshot) {
 //     $("#age-display").text(snapshot.val().age);
 //     $("#comment-display").text(snapshot.val().comment);
 // });
+
+
+
+
+//2.) 
+
+
+ // Assume the following situations.
+
+    // (TEST 1)
+    // First Train of the Day is 3:00 AM
+    // Assume Train comes every 3 minutes.
+    // Assume the current time is 3:16 AM....
+    // What time would the next train be...? (Use your brain first)
+    // It would be 3:18 -- 2 minutes away
+
+    // (TEST 2)
+    // First Train of the Day is 3:00 AM
+    // Assume Train comes every 7 minutes.
+    // Assume the current time is 3:16 AM....
+    // What time would the next train be...? (Use your brain first)
+    // It would be 3:21 -- 5 minutes away
+
+
+    // ==========================================================
+
+    // Solved Mathematically
+    // Test case 1:
+    // 16 - 00 = 16
+    // 16 % 3 = 1 (Modulus is the remainder)
+    // 3 - 1 = 2 minutes away
+    // 2 + 3:16 = 3:18
+
+    // Solved Mathematically
+    // Test case 2:
+    // 16 - 00 = 16
+    // 16 % 7 = 2 (Modulus is the remainder)
+    // 7 - 2 = 5 minutes away
+    // 5 + 3:16 = 3:21
+
+
+
+
+
+
